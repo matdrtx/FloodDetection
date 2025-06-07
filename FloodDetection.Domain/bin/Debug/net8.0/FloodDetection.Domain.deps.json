@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "FloodDetection.Domain/1.0.0": {
+        "runtime": {
+          "FloodDetection.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FloodDetection.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

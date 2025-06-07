@@ -1,0 +1,11 @@
+C:\Git\FloodDetection\FloodDetection.Domain\bin\Debug\net8.0\FloodDetection.Domain.deps.json
+C:\Git\FloodDetection\FloodDetection.Domain\bin\Debug\net8.0\FloodDetection.Domain.dll
+C:\Git\FloodDetection\FloodDetection.Domain\bin\Debug\net8.0\FloodDetection.Domain.pdb
+C:\Git\FloodDetection\FloodDetection.Domain\obj\Debug\net8.0\FloodDetection.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\FloodDetection\FloodDetection.Domain\obj\Debug\net8.0\FloodDetection.Domain.AssemblyInfoInputs.cache
+C:\Git\FloodDetection\FloodDetection.Domain\obj\Debug\net8.0\FloodDetection.Domain.AssemblyInfo.cs
+C:\Git\FloodDetection\FloodDetection.Domain\obj\Debug\net8.0\FloodDetection.Domain.csproj.CoreCompileInputs.cache
+C:\Git\FloodDetection\FloodDetection.Domain\obj\Debug\net8.0\FloodDetection.Domain.dll
+C:\Git\FloodDetection\FloodDetection.Domain\obj\Debug\net8.0\refint\FloodDetection.Domain.dll
+C:\Git\FloodDetection\FloodDetection.Domain\obj\Debug\net8.0\FloodDetection.Domain.pdb
+C:\Git\FloodDetection\FloodDetection.Domain\obj\Debug\net8.0\ref\FloodDetection.Domain.dll

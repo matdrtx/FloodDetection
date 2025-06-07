@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Gbaw9wxFOjvf+c99snud0UkqFtTgz24hhnrOzKMYIFc=",
+  "Source": "FloodDetection.API",
+  "BasePath": "_content/FloodDetection.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

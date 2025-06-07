@@ -1,0 +1,12 @@
+C:\Git\FloodDetection\FloodDetection.ML\bin\Debug\net8.0\FloodDetection.ML.deps.json
+C:\Git\FloodDetection\FloodDetection.ML\bin\Debug\net8.0\FloodDetection.ML.dll
+C:\Git\FloodDetection\FloodDetection.ML\bin\Debug\net8.0\FloodDetection.ML.pdb
+C:\Git\FloodDetection\FloodDetection.ML\obj\Debug\net8.0\FloodDetection.ML.csproj.AssemblyReference.cache
+C:\Git\FloodDetection\FloodDetection.ML\obj\Debug\net8.0\FloodDetection.ML.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\FloodDetection\FloodDetection.ML\obj\Debug\net8.0\FloodDetection.ML.AssemblyInfoInputs.cache
+C:\Git\FloodDetection\FloodDetection.ML\obj\Debug\net8.0\FloodDetection.ML.AssemblyInfo.cs
+C:\Git\FloodDetection\FloodDetection.ML\obj\Debug\net8.0\FloodDetection.ML.csproj.CoreCompileInputs.cache
+C:\Git\FloodDetection\FloodDetection.ML\obj\Debug\net8.0\FloodDetection.ML.dll
+C:\Git\FloodDetection\FloodDetection.ML\obj\Debug\net8.0\refint\FloodDetection.ML.dll
+C:\Git\FloodDetection\FloodDetection.ML\obj\Debug\net8.0\FloodDetection.ML.pdb
+C:\Git\FloodDetection\FloodDetection.ML\obj\Debug\net8.0\ref\FloodDetection.ML.dll
