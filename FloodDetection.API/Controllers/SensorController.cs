@@ -1,15 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 using FloodDetection.Domain.Entities;
+using FloodDetection.API.Services;
 
 [ApiController]
 [Route("api/v1/sensores")]
 public class SensorController : ControllerBase
 {
-    private static readonly List<Sensor> sensores = new();
+    private readonly IDataService _dataService;
+
+    public SensorController(IDataService dataService)
+    {
+        _dataService = dataService;
+    }
 
     [HttpGet]
-    public IActionResult GetAll()
+    public async Task<IActionResult> GetAll()
     {
+        var sensores = await _dataService.GetAllSensoresAsync();
         var result = sensores.Select(s => new
         {
             s,
@@ -23,26 +30,26 @@ public class SensorController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid id)
     {
-        var sensor = sensores.FirstOrDefault(s => s.Id == id);
+        var sensor = await _dataService.GetSensorByIdAsync(id);
         return sensor == null ? NotFound() : Ok(sensor);
     }
 
     [HttpPost]
-    public IActionResult Create(Sensor sensor)
+    public async Task<IActionResult> Create(Sensor sensor)
     {
         sensor.Id = Guid.NewGuid();
-        sensores.Add(sensor);
+        await _dataService.CreateSensorAsync(sensor);
         return CreatedAtAction(nameof(GetById), new { id = sensor.Id }, sensor);
     }
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(Guid id)
+    public async Task<IActionResult> Delete(Guid id)
     {
-        var sensor = sensores.FirstOrDefault(s => s.Id == id);
-        if (sensor == null) return NotFound();
-        sensores.Remove(sensor);
+        var existing = await _dataService.GetSensorByIdAsync(id);
+        if (existing == null) return NotFound();
+        await _dataService.DeleteSensorAsync(id);
         return NoContent();
     }
 }
