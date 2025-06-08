@@ -1,5 +1,6 @@
 using FloodDetection.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using FloodDetection.API.Services;
 
 namespace FloodDetection.API.Controllers;
 
@@ -7,11 +8,17 @@ namespace FloodDetection.API.Controllers;
 [Route("api/v1/alertas")]
 public class AlertaController : ControllerBase
 {
-    private static readonly List<Alerta> alertas = new();
+    private readonly IDataService _dataService;
+
+    public AlertaController(IDataService dataService)
+    {
+        _dataService = dataService;
+    }
 
     [HttpGet]
-    public IActionResult GetAll()
+    public async Task<IActionResult> GetAll()
     {
+        var alertas = await _dataService.GetAllAlertasAsync();
         var result = alertas.Select(a => new
         {
             a,
@@ -25,17 +32,17 @@ public class AlertaController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid id)
     {
-        var alerta = alertas.FirstOrDefault(a => a.Id == id);
+        var alerta = await _dataService.GetAlertaByIdAsync(id);
         return alerta == null ? NotFound() : Ok(alerta);
     }
 
     [HttpPost]
-    public IActionResult Create(Alerta alerta)
+    public async Task<IActionResult> Create(Alerta alerta)
     {
         alerta.Id = Guid.NewGuid();
-        alertas.Add(alerta);
+        await _dataService.CreateAlertaAsync(alerta);
         return CreatedAtAction(nameof(GetById), new { id = alerta.Id }, alerta);
     }
 }

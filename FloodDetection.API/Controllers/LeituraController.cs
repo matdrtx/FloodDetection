@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
+using FloodDetection.API.Services;
 
 namespace FloodDetection.API.Controllers;
 
@@ -10,11 +11,17 @@ namespace FloodDetection.API.Controllers;
 [Route("api/v1/leituras")]
 public class LeituraController : ControllerBase
 {
-    private static readonly List<Leitura> leituras = new();
+    private readonly IDataService _dataService;
+
+    public LeituraController(IDataService dataService)
+    {
+        _dataService = dataService;
+    }
 
     [HttpGet]
-    public IActionResult GetAll()
+    public async Task<IActionResult> GetAll()
     {
+        var leituras = await _dataService.GetAllLeiturasAsync();
         var result = leituras.Select(l => new
         {
             l,
@@ -28,20 +35,19 @@ public class LeituraController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid id)
     {
-        var leitura = leituras.FirstOrDefault(l => l.Id == id);
+        var leitura = await _dataService.GetLeituraByIdAsync(id);
         return leitura == null ? NotFound() : Ok(leitura);
     }
 
     [HttpPost]
-    public IActionResult Create(Leitura leitura)
+    public async Task<IActionResult> Create(Leitura leitura)
     {
         leitura.Id = Guid.NewGuid();
         leitura.Timestamp = DateTime.UtcNow;
 
-        // Armazena em memória (ou banco)
-        leituras.Add(leitura);
+        await _dataService.CreateLeituraAsync(leitura);
 
         // Publica a leitura na fila do RabbitMQ
         EnviarParaFila(leitura);
