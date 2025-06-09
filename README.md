@@ -169,3 +169,7 @@ A API limita o número de requisições por IP:
 - `x-rate-limit-limit`: limite total (ex: 30)
 - `x-rate-limit-remaining`: quantas requisições ainda restam
 - `x-rate-limit-reset`: quando o limite será resetado
+
+# Vídeo demonstrado do projeto total:
+
+https://www.youtube.com/watch?v=x8Oygxk1--8
